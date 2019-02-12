@@ -1,0 +1,33 @@
+{
+  "presets": [
+    [
+      "next/babel",
+      {
+        "preset-env": {
+          "useBuiltIns": "usage",
+          "targets": { "ie": 11, "edge": "16" }
+        }
+      }
+    ],
+    "@zeit/next-typescript/babel"
+  ],
+  "plugins": [
+    [
+      "@babel/plugin-proposal-class-properties",
+      {
+        "loose": true
+      }
+    ],
+    [
+      "module-resolver",
+      {
+        "root": ["./.next/production-server/src", "./pages"],
+        "alias": {
+          "@server": "./.next/production-server/src",
+          "@pages": "./pages",
+        },
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    ]
+  ]
+}

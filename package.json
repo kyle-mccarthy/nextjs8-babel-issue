@@ -1,0 +1,37 @@
+{
+  "name": "next-bug",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon server/index.ts",
+    "build:server": "npx tsc --project tsconfig.server.json && npx babel .next/production-server -d .next/production-server --config-file ./babel-server.config.js --extensions \".js\"",
+    "build:ui": "npx next build",
+    "build": "yarn build:server && yarn build:ui",
+    "start": "NODE_ENV=production node -r reflect-metadata .next/production-server/index.js"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.3.0",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-typescript": "^7.1.0",
+    "@types/next": "^8.0.0",
+    "@zeit/next-css": "^1.0.1",
+    "@zeit/next-typescript": "^1.1.1",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "fastify": "^1.14.1",
+    "next": "^8.0.0",
+    "nodemon": "^1.18.10",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
+    "reflect-metadata": "^0.1.13",
+    "ts-node": "^8.0.2",
+    "tsconfig-paths": "^3.8.0",
+    "typescript": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/pg": "^7.4.11"
+  }
+}
